@@ -5,16 +5,10 @@ var assert = Ember.assert;
 var Helper = Ember.HTMLBars.Helper;
 
 function helperFunc(params, hash, options, env) {
-  Ember.assert("You must pass the component name as the first param of this helper",
-               params.length === 1);
 
-  hash['_componentName'] = params[0];
-  hash['_properties']    = hash;
-
-  if ('propertiesToBind' in hash) {
-    hash['_propertiesToBind'] = hash['propertiesToBind'];
-    delete hash['propertiesToBind'];
-  }
+  hash['_componentName']    = params[0];
+  hash['_propertiesToBind'] = params[1];
+  hash['_properties']       = hash;
 
   return env.helpers.view.helperFunction.call(this, [PolyComponentView], hash, options, env);
 }
@@ -22,4 +16,4 @@ function helperFunc(params, hash, options, env) {
 export default {
   isHTMLBars: true,
   helperFunction: helperFunc
-
+}
