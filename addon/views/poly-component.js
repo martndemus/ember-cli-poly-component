@@ -26,7 +26,7 @@ function mergeBinding(view, source, destination, key) {
       destination[key] = value;
     }
   } else {
-    if (value.isStream) {
+    if (value && value.isStream) {
       destination[key + 'Binding'] = view._getBindingForStream(value);
     } else {
       destination[key] = value;
