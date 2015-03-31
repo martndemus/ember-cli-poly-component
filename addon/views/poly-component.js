@@ -48,6 +48,7 @@ export default Ember.ContainerView.extend(Ember._Metamorph, {
 
   componentForType: function() {
     var componentName   = get(this, '_componentName');
+
     var container       = get(this, 'container');
     var componentLookup = container.lookup('component-lookup:main');
     var component = componentLookup.lookupFactory(componentName, container);
@@ -58,9 +59,9 @@ export default Ember.ContainerView.extend(Ember._Metamorph, {
     var props = {};
     var key;
 
-    if (properties && ('_propertiesToBind' in properties)) {
-      var label            = properties['_propertiesToBindBinding']._label;
-      var propertiesToBind = properties['_propertiesToBindBinding'].value();
+    if (properties && properties['_propertiesToBind'] != null) {
+      var label            = properties['_propertiesToBind']._label;
+      var propertiesToBind = properties['_propertiesToBind'].value();
 
       for (key in propertiesToBind) {
         if (!propertiesToBind.hasOwnProperty(key)) { continue; }
