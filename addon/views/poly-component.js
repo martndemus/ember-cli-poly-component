@@ -58,7 +58,7 @@ export default Ember.ContainerView.extend(Ember._Metamorph, {
     var props = {};
     var key;
 
-    if ('_propertiesToBindBinding' in properties) {
+    if (properties && ('_propertiesToBind' in properties)) {
       var label            = properties['_propertiesToBindBinding']._label;
       var propertiesToBind = properties['_propertiesToBindBinding'].value();
 
