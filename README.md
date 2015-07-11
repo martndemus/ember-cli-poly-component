@@ -1,3 +1,6 @@
+### THIS PROJECT IS NOT BEING MAINTAINED ANYMORE
+Just use the built in `component` helper.
+
 # ember-cli-poly-component
 Render any Ember component with any attributes.
 
